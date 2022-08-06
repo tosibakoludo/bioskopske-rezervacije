@@ -75,7 +75,7 @@ function azuriraj() {
     const occupiedSeatsIndex = [...occupiedSeats].map(seat => [...seats].indexOf(seat));
     console.log(occupiedSeatsIndex);
 
-    seatsNotOccupied = document.querySelectorAll(".row .seat:not(.occupied)");
+    const seatsNotOccupied = document.querySelectorAll(".row .seat:not(.occupied)");
 
     const selectedSeats = document.querySelectorAll(".row .seat.selected");
     console.log(selectedSeats);
