@@ -19,7 +19,7 @@ movie.addEventListener("change", function () {
 })
 
 occupy.addEventListener("click", function (e) {
-    const selectedSeats = document.querySelectorAll(".row .seat .selected");
+    const selectedSeats = document.querySelectorAll(".row .seat.selected");
     selectedSeats.forEach(elem => {
         elem.classList.remove('selected');
         elem.classList.add('occupied');
@@ -68,12 +68,12 @@ function ucitaj() {
 }
 
 function azuriraj() {
-    const occupiedSeats = document.querySelectorAll(".row .seat .occupied");
+    const occupiedSeats = document.querySelectorAll(".row .seat.occupied");
     const occupiedSeatsIndex = [...occupiedSeats].map(seat => [...seats].indexOf(seat));
 
     const seatsNotOccupied = document.querySelectorAll(".row .seat:not(.occupied)");
 
-    const selectedSeats = document.querySelectorAll(".row .seat .selected");
+    const selectedSeats = document.querySelectorAll(".row .seat.selected");
     const seatsIndex = [...selectedSeats].map(seat => [...seatsNotOccupied].indexOf(seat));
 
     localStorage.setItem("occupied" + movie.selectedIndex, JSON.stringify(occupiedSeatsIndex));
