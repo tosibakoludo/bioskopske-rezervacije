@@ -28,7 +28,6 @@ occupy.addEventListener("click", function (e) {
 })
 
 function ucitaj() {
-    console.log("ucitaj");
     const selectedMovie = localStorage.getItem("selectedMovie");
 
     if (selectedMovie !== null) {
@@ -37,8 +36,6 @@ function ucitaj() {
 
     const occupiedSeats = JSON.parse(localStorage.getItem("occupied" + movie.selectedIndex));
     const selectedSeats = JSON.parse(localStorage.getItem("selected" + movie.selectedIndex));
-    console.log("jako vazno");
-    console.log(selectedSeats);
 
     if (occupiedSeats !== null && occupiedSeats.length > 0) {
         seats.forEach((elem, index) => {
@@ -73,15 +70,11 @@ function ucitaj() {
 function azuriraj() {
     const occupiedSeats = document.querySelectorAll(".row .seat.occupied");
     const occupiedSeatsIndex = [...occupiedSeats].map(seat => [...seats].indexOf(seat));
-    console.log("azuriraj: occupiedSeatsIndex" + occupiedSeatsIndex);
 
     const seatsNotOccupied = document.querySelectorAll(".row .seat:not(.occupied)");
-    console.log(seatsNotOccupied);
 
     const selectedSeats = document.querySelectorAll(".row .seat.selected");
-    console.log(selectedSeats);
     const seatsIndex = [...selectedSeats].map(seat => [...seatsNotOccupied].indexOf(seat));
-    console.log("azuriraj: seatsIndex" + seatsIndex);
 
     localStorage.setItem("occupied" + movie.selectedIndex, JSON.stringify(occupiedSeatsIndex));
     localStorage.setItem("selected" + movie.selectedIndex, JSON.stringify(seatsIndex));
