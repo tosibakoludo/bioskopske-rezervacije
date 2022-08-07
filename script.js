@@ -1,5 +1,4 @@
 const seats = document.querySelectorAll(".row .seat");
-var seatsNotOccupied = document.querySelectorAll(".row .seat:not(.occupied)");
 const container = document.querySelector(".container");
 
 ucitaj();
@@ -36,6 +35,8 @@ function ucitaj() {
 
     const occupiedSeats = JSON.parse(localStorage.getItem("occupied" + movie.selectedIndex));
     const selectedSeats = JSON.parse(localStorage.getItem("selected" + movie.selectedIndex));
+
+    var seatsNotOccupied = document.querySelectorAll(".row .seat:not(.occupied)");
 
     if (occupiedSeats !== null && occupiedSeats.length > 0) {
         seats.forEach((elem, index) => {
